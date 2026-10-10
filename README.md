@@ -1,5 +1,13 @@
 > 🌸 Test page made with Strata IQ2_XS on a RX 6700 XT: https://xoykor.github.io/pagoda/
 
+> 🖥️ **RX 6700 XT (12 GB, gfx1031) notes — this fork:** IQ2_XS (rated for 48 GB of RAM) runs on a 32 GB PC with
+> ~17 GB still available. What it took: `--mmap-experts --resident-budget-gib 8` (8.00 GiB resident instead of ~21),
+> `--kv q4_0 --kv-resident 32768` (226 MiB KV in VRAM), `--no-prefill-borrow`, `--adapt-every 0 --adapt-swaps 0`,
+> `STRATA_RESIDENT_PIN=0 HSA_USERPTR_FOR_PAGED_MEM=0 STRATA_HIP_ADAPT_KERNEL_COPY=1`, `reasoning_budget_tokens 4096`,
+> context up to 262144. Last run: 742 MiB VRAM free, prefill 2.3 tok/s, decode ~2 tok/s, KV streaming 99%+ VRAM hits.
+> Full story: [docs/OLDER_GPUS.md](docs/OLDER_GPUS.md#amd) · upstream issue
+> [#649](https://github.com/Niko1221/Strata/issues/649) · working config: `strata-iq2_xs.json`.
+
 <h1 align="center">Strata</h1>
 
 **English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
