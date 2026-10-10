@@ -1,3 +1,5 @@
+> 🌸 Test page made with Strata IQ2_XS on a RX 6700 XT: https://xoykor.github.io/pagoda/
+
 <h1 align="center">Strata</h1>
 
 **English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
