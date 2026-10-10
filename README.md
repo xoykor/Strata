@@ -1,3 +1,5 @@
+> 🌸 Test page made with Strata IQ2_XS on a RX 6700 XT: https://xoykor.github.io/pagoda/
+
 <h1 align="center">Strata</h1>
 
 **English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
@@ -170,6 +172,9 @@ More: [where your chats are stored](docs/INSTALL.md#where-things-are-stored), [t
   it stopped.
 - **It's very slow and the disk light keeps blinking, or it says "the engine stopped unexpectedly".** Your PC does
   not have enough free RAM. Close other programs (browsers use a lot), or pick a smaller size (Q2_0 or IQ2_XS).
+- **RX 6700 XT: `verify: timed out` and the engine restarts.** Use file-backed experts with a RAM budget
+  (`--mmap-experts --resident-budget-gib 8-12`), `--kv q4_0 --kv-resident 32768`, `--no-prefill-borrow`,
+  `--adapt-every 0 --adapt-swaps 0`: [tested settings](docs/OLDER_GPUS.md#amd).
 - **It says port 8080 is already in use.** Strata is already running. Look for its window.
 
 More problems and their fixes: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md). Still stuck? Open an
