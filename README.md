@@ -4,7 +4,8 @@
 > ~17 GB still available. What it took: `--mmap-experts --resident-budget-gib 8` (8.00 GiB resident instead of ~21),
 > `--kv q4_0 --kv-resident 32768` (226 MiB KV in VRAM), `--no-prefill-borrow`, `--adapt-every 0 --adapt-swaps 0`,
 > `STRATA_RESIDENT_PIN=0 HSA_USERPTR_FOR_PAGED_MEM=0 STRATA_HIP_ADAPT_KERNEL_COPY=1`, `reasoning_budget_tokens 4096`,
-> context up to 262144. Last run: 742 MiB VRAM free, prefill 2.3 tok/s, decode ~2 tok/s, KV streaming 99%+ VRAM hits.
+> context up to 262144. Last runs: 742 MiB VRAM free, prompts of 83-90K tokens read in ~20 s, decode 4-8 tok/s
+(tool calls, thinking and answers), expert cache 23-40% hit, KV streaming 99%+ VRAM hits.
 > Full story: [docs/OLDER_GPUS.md](docs/OLDER_GPUS.md#amd) · upstream issue
 > [#649](https://github.com/Niko1221/Strata/issues/649) · working config: `strata-iq2_xs.json`.
 
@@ -183,8 +184,8 @@ More: [where your chats are stored](docs/INSTALL.md#where-things-are-stored), [t
 - **RX 6700 XT: `verify: timed out` and the engine restarts.** Use file-backed experts with a RAM budget
   (`--mmap-experts --resident-budget-gib 8-12`), `--kv q4_0 --kv-resident 32768`, `--no-prefill-borrow`,
   `--adapt-every 0 --adapt-swaps 0`: [tested settings](docs/OLDER_GPUS.md#amd). With them, IQ2_XS (rated for 48 GB
-  of RAM) runs on a 32 GB PC with ~17 GB still available: 8.00 GiB of experts resident, 742 MiB VRAM free, prefill
-  2.3 tok/s, decode ~2 tok/s.
+  of RAM) runs on a 32 GB PC with ~17 GB still available: 8.00 GiB of experts resident, 742 MiB VRAM free, decode
+  4-8 tok/s.
 - **It says port 8080 is already in use.** Strata is already running. Look for its window.
 
 More problems and their fixes: [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md). Still stuck? Open an
